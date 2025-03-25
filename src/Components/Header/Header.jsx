@@ -10,7 +10,7 @@ export default function Header() {
                     <Link to="/" className="flex items-center">
                        
                         <Logo className="w-16 h-16" />
-                        <span className='text-4xl m-4 md:text-2xl font-font-leela text-fuchsia-500 animate-pulse'>Zini Fitness Hub</span>
+                       
                     </Link>
                     <div className="flex items-center lg:order-2">
                         <Link
