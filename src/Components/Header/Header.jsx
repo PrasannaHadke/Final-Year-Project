@@ -36,7 +36,8 @@ export default function Header() {
 
                     </div>
                     <div
-                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+                    // ya pe display hidden kiya hai isliye jab mobile pe dekhenge to home and about button nahi dikenga className="hidden" jo ki mai hata raha hu
+                        className="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
