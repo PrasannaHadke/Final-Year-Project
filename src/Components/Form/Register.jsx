@@ -32,7 +32,7 @@ function Register() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h2 className="text-3xl font-bold text-yellow-400 text-center">Gym Registration</h2>
-        <p className="text-gray-400 text-center mt-2">Join Zini Fitness Hub today!</p>
+        <p className="text-gray-400 text-center mt-2">Join us today and start your fitness journey with Fitness Hub today!</p>
 
         {/* Registration Form */}
         <form className="mt-6" onSubmit={handleSubmit}>
