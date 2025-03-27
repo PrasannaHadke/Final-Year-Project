@@ -30,7 +30,7 @@ function Home() {
         </div>
       </div> */}
     <HeroSection/>
-    <LandingPage/>
+    {/* <LandingPage/> */}
     <MemberShip/>
     <BmiCalculator/>
     <GymReviews/>
