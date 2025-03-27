@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BmiCalculator from '../BMI Calculator/BmiCalculator'
+import LandingPage from './LandingPage'
+import MemberShip from './MemberShip'
+import GymReviews from './GymReviews'
+import HeroSection from './HeroSection'
 function Home() {
   return (
     <>
-      <div className='border-2 w-full h-screen flex justify-center bg-linear-to-r from-zinc-800 to-zinc-900'>
+      {/* <div className='border-2 w-full h-screen flex justify-center bg-linear-to-r from-zinc-800 to-zinc-900'>
         <div className='border-green-600 w-[80%] h-screen flex'>
           <div className="w-[50%] flex flex-col justify-center items-start space-y-6 p-6">
             <h1 className="text-6xl font-bold text-white">
@@ -12,7 +16,7 @@ function Home() {
             </h1>
 
             <button className="bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 
-      font-medium rounded-lg text-sm px-6 py-3 focus:outline-none transition duration-200">
+                font-medium rounded-lg text-sm px-6 py-3 focus:outline-none transition duration-200">
               <Link to="/register" className="text-white">Join Now!</Link>
             </button>
           </div>
@@ -24,9 +28,12 @@ function Home() {
           </div>
 
         </div>
-      </div>
-
-
+      </div> */}
+    <HeroSection/>
+    <LandingPage/>
+    <MemberShip/>
+    <BmiCalculator/>
+    <GymReviews/>
     </>
   )
 }
