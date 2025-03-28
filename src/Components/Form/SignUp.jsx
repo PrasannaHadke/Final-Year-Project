@@ -32,7 +32,7 @@ function SignUp() {
       })
 
       if (user) {
-        navigate("/about");
+        navigate("/dashboard");
       }
     } catch (error) {
       setError("SignUp failed. Please try again.");

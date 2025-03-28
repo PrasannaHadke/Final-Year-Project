@@ -50,7 +50,8 @@ function Register() {
     console.log(registeredUser );
 
     if (registeredUser.status === 201) {
-      navigate("/"); // Redirect after successful registration
+      alert("Registration Successful! Welcome to Fitness Hub 💪");
+      navigate("/signup"); // Redirect after successful registration
     }
 
     } catch (error) {
