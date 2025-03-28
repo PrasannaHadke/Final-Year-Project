@@ -1,5 +1,6 @@
 import React from "react";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../FramerMotion/Variant";
 function GymReviews() {
   const reviews = [
     {
@@ -29,8 +30,20 @@ function GymReviews() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-5">
-      <h1 className="text-4xl font-bold mb-8">Member Reviews</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <motion.h1 
+      variants={fadeIn('up',0.5)}
+      initial= 'hidden'
+      whileInView={'show'}
+      viewport={{once:false, amount:0.7}}
+      className="text-4xl font-bold mb-8">Member Reviews</motion.h1>
+
+      
+      <motion.div
+      variants={fadeIn('down',0.5)}
+      initial= 'hidden'
+      whileInView={'show'}
+      viewport={{once:false, amount:0.7}}
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {reviews.map((review, index) => (
           <div
             key={index}
@@ -46,7 +59,7 @@ function GymReviews() {
             <p className="text-gray-300 mt-4 italic">"{review.feedback}"</p>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../FramerMotion/Variant";
 function MemberShip() {
   const memberships = [
     {
@@ -21,14 +22,20 @@ function MemberShip() {
       duration: "12 Months",
       features: ["All Quarterly Benefits", "Exclusive Merchandise", "Priority Booking"],
     },
+    
   ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-5">
-      <h1 className="text-4xl font-bold mb-8">Choose Your Membership</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">Choose Your Membership</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {memberships.map((plan, index) => (
-          <div
+          <motion.div
+          variants={fadeIn('up',0.5)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{once:false,amount:0.7}}
+
             key={index}
             className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all text-center w-80"
           >
@@ -45,7 +52,7 @@ function MemberShip() {
             <button className="mt-6 bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition-all">
               <Link to={"/register"}>Join Now</Link>
             </button>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

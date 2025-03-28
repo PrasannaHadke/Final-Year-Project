@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import { motion } from 'framer-motion';
+import { fadeIn } from '../FramerMotion/Variant';
 function BmiCalculator() {
     const [weight, setWeight] = useState("");
     const [height, setHeight] = useState("");
@@ -22,7 +23,12 @@ function BmiCalculator() {
         <>
        <div className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-zinc-800 to-zinc-900 p-6">
       {/* Left Section - Image */}
-      <div className="w-full md:w-1/2 p-4">
+      <motion.div
+      variants={fadeIn('right',0.5)}
+      initial='hidden'
+      whileInView={'show'}
+      viewport={{once:false,amount:0.7}}
+      className="w-full md:w-1/2 p-4">
         <div
           className="w-full h-72 md:h-96 bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden shadow-lg"
           style={{
@@ -30,10 +36,15 @@ function BmiCalculator() {
               "url(https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)",
           }}
         ></div>
-      </div>
+      </motion.div>
 
       {/* Right Section - BMI Calculator */}
-      <div className="w-full md:w-1/3 p-6 bg-white shadow-lg rounded-lg mt-6 md:mt-0">
+      <motion.div 
+       variants={fadeIn('left',0.5)}
+       initial='hidden'
+       whileInView={'show'}
+       viewport={{once:false,amount:0.7}}
+      className="w-full md:w-1/3 p-6 bg-white shadow-lg rounded-lg mt-6 md:mt-0">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
           BMI Calculator
         </h1>
@@ -78,7 +89,7 @@ function BmiCalculator() {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
         </>
     );
