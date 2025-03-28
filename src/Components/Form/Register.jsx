@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function Register() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -11,21 +11,53 @@ function Register() {
     membership: "basic",
   });
 
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
     console.log("Registration Data:", formData);
-    alert("Registration Successful! Welcome to Zini Fitness Hub 💪");
-    navigate("/layout"); // Redirect after successful registration
+    // alert("Registration Successful! Welcome to Fitness Hub 💪");
+
+
+    // agar user phele se exist krta hai to registration nhi honga uska code yaha se hai!
+
+    try{
+      const response = await axios.get("https://6788e51d2c874e66b7d6c01d.mockapi.io/one");
+      console.log(response.data);
+      const existingUser = response.data.find(user => user.email === formData.email);
+      if (existingUser) {
+        setErrors({ error: "User already exists. Please choose a different email." });
+        return;
+      }
+    }catch(error){
+      errors({ error: "Registration failed. Please try again." });
+    }
+
+
+    // Send registration data to the server for processing
+
+    try {
+      const registeredUser  =await axios.post("https://6788e51d2c874e66b7d6c01d.mockapi.io/one", formData);
+    console.log(registeredUser );
+
+    if (registeredUser.status === 201) {
+      navigate("/"); // Redirect after successful registration
+    }
+
+    } catch (error) {
+      setErrors({ error: "Registration failed. Please try again." });
+    }
+    
+    
   };
 
   return (
@@ -98,6 +130,7 @@ function Register() {
         <p className="text-gray-400 text-center mt-4">
           Already a member? <a href="/login" className="text-yellow-400 hover:underline">Login here</a>
         </p>
+        <p className="text-xl text-white text-center">{errors.error }</p>
       </div>
     </div>
   );

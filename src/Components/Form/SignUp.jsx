@@ -1,20 +1,42 @@
 import React, { useState } from "react";
 import Logo from "../Logo/Logo.jsx";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function SignUp() {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    alert("Signup Successful!");
+    if (!formData.fullName || !formData.email || !formData.password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+    try {
+      const signUpResponse = await axios.get("https://6788e51d2c874e66b7d6c01d.mockapi.io/one");
+      console.log(signUpResponse.data);
+      
+      let user = signUpResponse.data.find((u) => {
+        console.log(u);
+        
+        return (u.fullName === formData.fullName && u.email === formData.email && u.password === formData.password)
+      })
+
+      if (user) {
+        navigate("/about");
+      }
+    } catch (error) {
+      setError("SignUp failed. Please try again.");
+    }
   };
 
   return (
@@ -31,8 +53,8 @@ function SignUp() {
             <label className="block text-gray-300 font-medium mb-1">Full Name</label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="fullName"
+              value={formData.fullName}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
@@ -84,6 +106,7 @@ function SignUp() {
             Login here
           </a>
         </p>
+        <p>{error}</p>
       </div>
     </div>
   );
