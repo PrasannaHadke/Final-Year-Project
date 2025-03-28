@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../FramerMotion/Variant";
 function HeroSection() {
   return (
-    <div className="border-2 w-full min-h-screen flex justify-center bg-gradient-to-r from-zinc-800 to-zinc-900">
+    <div className="w-full min-h-screen flex justify-center bg-gradient-to-r from-zinc-800 to-zinc-900">
       <div className=" w-[90%] max-w-6xl min-h-screen flex flex-col md:flex-row items-center">
         
         {/* Left Section - Text */}

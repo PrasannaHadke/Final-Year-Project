@@ -37,7 +37,7 @@ function GymReviews() {
       viewport={{once:false, amount:0.7}}
       className="text-4xl font-bold mb-8">Member Reviews</motion.h1>
 
-      
+
       <motion.div
       variants={fadeIn('down',0.5)}
       initial= 'hidden'
