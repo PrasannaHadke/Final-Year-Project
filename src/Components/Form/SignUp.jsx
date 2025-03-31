@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState ,useContext } from "react";
+import UserContext from "../Context/UserContext.js";
 import Logo from "../Logo/Logo.jsx";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function SignUp() {
+  const {setUser} = useContext(UserContext)
+
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -26,12 +30,15 @@ function SignUp() {
       console.log(signUpResponse.data);
       
       let user = signUpResponse.data.find((u) => {
-        console.log(u);
+        // console.log(u);
         
         return (u.fullName === formData.fullName && u.email === formData.email && u.password === formData.password)
       })
 
       if (user) {
+        setUser({fullName:user.fullName});
+        console.log("user",user.fullName);
+        
         navigate("/dashboard");
       }
     } catch (error) {
