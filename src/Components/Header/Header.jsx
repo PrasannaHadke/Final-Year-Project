@@ -23,7 +23,7 @@ export default function Header() {
                         {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                     </button>
                     
-                    <div className="hidden lg:flex items-center lg:order-2">
+                    <div className=" lg:flex items-center lg:order-2">
                         <button
                             className='m-3 p-3 hover:bg-gray-50 hover:border-red-500 hover:text-red-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none'
                             onClick={() => navigate("/signup")}
