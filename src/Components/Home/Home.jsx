@@ -5,6 +5,8 @@ import LandingPage from './LandingPage'
 import MemberShip from './MemberShip'
 import GymReviews from './GymReviews'
 import HeroSection from './HeroSection'
+import Section1 from './Section1'
+import Section2 from './Section2'
 function Home() {
   return (
     <>
@@ -30,8 +32,10 @@ function Home() {
         </div>
       </div> */}
     <HeroSection/>
+    <Section1/>
+    <Section2/>
     {/* <LandingPage/> */}
-    <MemberShip/>
+    {/* <MemberShip/> */}
     <BmiCalculator/>
     <GymReviews/>
     </>
