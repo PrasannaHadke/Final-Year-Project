@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState , useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import UserContext from "../Context/UserContext.js";
 function Register() {
+  const {setRegisterUser} = useContext(UserContext)
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -51,6 +54,7 @@ function Register() {
 
     if (registeredUser.status === 201) {
       alert("Registration Successful! Welcome to Fitness Hub 💪");
+      setRegisterUser(registeredUser.data)
       navigate("/signup"); // Redirect after successful registration
     }
 
@@ -96,7 +100,7 @@ function Register() {
           {/* Membership Type */}
           <div className="mb-4">
             <label className="block text-gray-300 font-medium mb-1">Membership Type</label>
-            <select name="membership" value={formData.membership} onChange={handleChange} required
+            <select name="membership" value={formData.membership || ""} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none">
               <option value="basic">Basic</option>
               <option value="premium">Premium</option>

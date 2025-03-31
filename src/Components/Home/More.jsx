@@ -6,8 +6,8 @@ function More() {
       {/* Gym Timings */}
       <div className="max-w-3xl mx-auto bg-gray-100 p-6 rounded-lg shadow-lg text-center">
         <h2 className="text-3xl font-bold text-gray-500 mb-4">🏋️ Gym Timings</h2>
-        <p className="text-lg">Monday - Friday: <strong>5:00 AM - 10:00 PM</strong></p>
-        <p className="text-lg">Saturday - Sunday: <strong>6:00 AM - 8:00 PM</strong></p>
+        <p className="text-lg">Monday - Saturday: <strong>5:00 AM - 10:00 PM</strong></p>
+        <p className="text-lg">Sunday: <strong>Closed</strong></p>
       </div>
 
       {/* Height & Weight Chart */}
