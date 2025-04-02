@@ -70,7 +70,7 @@ function SignUp() {
           </div>
 
           {/* Email */}
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block text-gray-300 font-medium mb-1">Email Address</label>
             <input
               type="email"
@@ -81,7 +81,7 @@ function SignUp() {
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
               placeholder="Enter your email"
             />
-          </div>
+          </div> */}
 
           {/* Password */}
           <div className="mb-4">
