@@ -9,7 +9,7 @@ function SignUp() {
 
   const [formData, setFormData] = useState({
     fullName: "",
-    email: "",
+    // email: "",
     password: "",
   });
 
@@ -61,7 +61,7 @@ function SignUp() {
             <input
               type="text"
               name="fullName"
-              value={formData.fullName?.trim() || ""}
+              value={formData.fullName}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
@@ -75,7 +75,7 @@ function SignUp() {
             <input
               type="email"
               name="email"
-              value={formData.email?.trim() || ""}
+              value={formData.email}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
@@ -89,7 +89,7 @@ function SignUp() {
             <input
               type="password"
               name="password"
-              value={formData.password.trim()}
+              value={formData.password}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
