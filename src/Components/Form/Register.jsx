@@ -2,12 +2,14 @@ import React, { useState , useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../Context/UserContext.js";
+import { address } from "framer-motion/client";
 function Register() {
   const {setRegisterUser} = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    address: "",
     phone: "",
     password: "",
     confirmPassword: "",
@@ -87,6 +89,14 @@ function Register() {
             <input type="email" name="email" value={formData.email} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
               placeholder="Enter your email"/>
+          </div>
+
+          {/* Address */}
+          <div>
+            <label className="block text-gray-300 font-medium mb-1">Address</label>
+            <input type="address" name="address" value={formData.address} onChange={handleChange} required
+            className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
+            placeholder="Enter your address" />
           </div>
 
           {/* Phone Number */}

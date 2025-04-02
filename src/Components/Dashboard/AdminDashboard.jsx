@@ -46,6 +46,7 @@ function AdminDashboard() {
                             </div>
                             <p className="text-xl font-semibold text-gray-700 mt-3">{user.fullName}</p>
                             <p className="text-gray-600 font-medium">📧 {user.email}</p>
+                            <p className="text-gray-600 font-medium">🏚️ {user?.address}</p>
                             <p className="text-gray-600 font-medium">📞 {user.phone}</p>
                             <p className="text-gray-500 font-medium">🏋️ Membership: {user.membership}</p>
                             <button
