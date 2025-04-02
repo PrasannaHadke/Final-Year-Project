@@ -12,7 +12,7 @@ export default function Header() {
 
     const handleLoginBtn = () => {
         if (user) {
-            setUser("");
+            setUser(null);
             navigate("/");
         } else {
             navigate("/signup");

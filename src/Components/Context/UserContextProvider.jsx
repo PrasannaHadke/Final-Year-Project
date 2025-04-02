@@ -3,7 +3,7 @@ import UserContext from "./UserContext";
 import { useNavigate } from "react-router-dom";
 import { nav } from "framer-motion/client";
 const UserContextProvider = ({children})=>{
-    const [user,setUser] = useState([]) // yaha data signup se araha hai
+    const [user,setUser] = useState(null) // yaha data signup se araha hai
     // console.log("UserContextProvider", user);
 
     const [registerUser, setRegisterUser] = useState([])
