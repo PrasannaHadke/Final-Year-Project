@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Logo from '../Logo/Logo.jsx';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-
+import { useContext } from 'react';
+import UserContext from '../Context/UserContext.js';
 export default function Header() {
+    const {user ,setUser} = useContext(UserContext);
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
 
+
+    const handleLoginBtn = () => {
+        if (user) {
+            setUser("");
+            navigate("/");
+        } else {
+            navigate("/signup");
+        }
+      };
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -45,6 +56,15 @@ export default function Header() {
                                     More
                                 </NavLink>
                             </li>
+                            {user &&<li>
+                                <NavLink
+                                    to="/dashboard"
+                                    className={({ isActive }) => `block py-2 pr-4 pl-3 lg:px-4 duration-200 border-b border-gray-100 lg:border-none hover:bg-gray-50 hover:text-orange-700 lg:hover:bg-transparent ${isActive ? "text-orange-700" : "text-gray-800"}`}
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Dashboard
+                                </NavLink>
+                            </li>}
                         </ul>
                     </div>
 
@@ -60,9 +80,10 @@ export default function Header() {
                     <div className="lg:flex items-center lg:order-2">
                         <button
                             className='m-3 p-3 hover:bg-gray-50 hover:border-red-500 hover:text-red-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none'
-                            onClick={() => navigate("/signup")}
+                            onClick={handleLoginBtn}
                         >
-                            Log in
+                            {user ? "LogOut" : "LogIn"}
+
                         </button>
                         <button
                             className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
