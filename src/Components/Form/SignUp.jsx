@@ -21,7 +21,7 @@ function SignUp() {
 
   const handleSubmit =async (e) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email || !formData.password) {
+    if (!formData.fullName || !formData.password) {
       setError("Please fill in all fields.");
       return;
     }
@@ -32,7 +32,7 @@ function SignUp() {
       let user = signUpResponse.data.find((u) => {
         // console.log(u);
         
-        return (u.fullName === formData.fullName && u.email === formData.email && u.password === formData.password)
+        return (u.fullName === formData.fullName  && u.password === formData.password)
       })
 
       if (user) {
