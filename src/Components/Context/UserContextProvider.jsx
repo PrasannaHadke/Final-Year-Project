@@ -9,7 +9,7 @@ const UserContextProvider = ({children})=>{
     const [registerUser, setRegisterUser] = useState([])
     
     const navigate = useNavigate();
-    const logout = () => navigate("/login");
+    const logout = () => navigate("/");
     return (
         <UserContext.Provider value={{user, setUser , logout , registerUser, setRegisterUser}}>
         {children}
