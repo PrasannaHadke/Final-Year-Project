@@ -106,13 +106,7 @@ function SignUp() {
           </button>
         </form>
 
-        {/* Login Redirect */}
-        <p className="text-gray-400 text-center mt-4">
-          Already have an account?{" "}
-          <a href="/login" className="text-yellow-400 hover:underline">
-            Login here
-          </a>
-        </p>
+       
         <p>{error}</p>
       </div>
     </div>

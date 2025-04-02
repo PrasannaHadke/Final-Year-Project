@@ -1,5 +1,5 @@
 import React, { useState , useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../Context/UserContext.js";
 import { address } from "framer-motion/client";
@@ -143,7 +143,7 @@ function Register() {
 
         {/* Already Have an Account? */}
         <p className="text-gray-400 text-center mt-4">
-          Already a member? <a href="/login" className="text-yellow-400 hover:underline">Login here</a>
+          Already a member? <Link to="/signup" className="text-yellow-400 hover:underline">Login here</Link>
         </p>
         <p className="text-xl text-white text-center">{errors.error }</p>
       </div>

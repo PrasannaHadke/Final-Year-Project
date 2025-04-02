@@ -40,6 +40,7 @@ export default function Footer() {
                                       About
                                   </NavLink>
                               </li>
+                              
                           </ul>
                       </div>
                       <div>

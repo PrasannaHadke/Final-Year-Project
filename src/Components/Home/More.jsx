@@ -17,7 +17,7 @@ function More() {
           <table className="w-full text-left border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-500 text-white">
-                <th className="p-2 border border-gray-300">Height (ft)</th>
+                <th className="p-2 border border-gray-300">Height (ft & cm)</th>
                 <th className="p-2 border border-gray-300">Ideal Weight (Men) (kg)</th>
                 <th className="p-2 border border-gray-300">Ideal Weight (Women) (kg)</th>
                 <th className="p-2 border border-gray-300">BMI Range</th>
@@ -25,16 +25,16 @@ function More() {
             </thead>
             <tbody>
               {[
-                { height: "5'0", men: "48 - 58 kg", women: "45 - 55 kg", bmi: "18.5 - 24.9" },
-                { height: "5'2", men: "52 - 64 kg", women: "49 - 60 kg", bmi: "18.5 - 24.9" },
-                { height: "5'4", men: "56 - 70 kg", women: "53 - 65 kg", bmi: "18.5 - 24.9" },
-                { height: "5'6", men: "61 - 76 kg", women: "57 - 70 kg", bmi: "18.5 - 24.9" },
-                { height: "5'8", men: "66 - 82 kg", women: "61 - 75 kg", bmi: "18.5 - 24.9" },
-                { height: "5'10", men: "71 - 88 kg", women: "66 - 81 kg", bmi: "18.5 - 24.9" },
-                { height: "6'0", men: "76 - 94 kg", women: "70 - 86 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'0", heightCm: "152 cm", men: "48 - 58 kg", women: "45 - 55 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'2", heightCm: "157 cm", men: "52 - 64 kg", women: "49 - 60 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'4", heightCm: "163 cm", men: "56 - 70 kg", women: "53 - 65 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'6", heightCm: "168 cm", men: "61 - 76 kg", women: "57 - 70 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'8", heightCm: "173 cm", men: "66 - 82 kg", women: "61 - 75 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "5'10", heightCm: "178 cm", men: "71 - 88 kg", women: "66 - 81 kg", bmi: "18.5 - 24.9" },
+                { heightFt: "6'0", heightCm: "183 cm", men: "76 - 94 kg", women: "70 - 86 kg", bmi: "18.5 - 24.9" },
               ].map((row, index) => (
                 <tr key={index} className="text-center bg-gray-50 even:bg-gray-200">
-                  <td className="p-2 border border-gray-300">{row.height}</td>
+                  <td className="p-2 border border-gray-300">{row.heightFt} / {row.heightCm}</td>
                   <td className="p-2 border border-gray-300">{row.men}</td>
                   <td className="p-2 border border-gray-300">{row.women}</td>
                   <td className="p-2 border border-gray-300">{row.bmi}</td>
