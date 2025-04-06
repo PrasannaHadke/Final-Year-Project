@@ -3,10 +3,11 @@ import UserContext from '../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
-  const { user, logout } = useContext(UserContext);
+  const { user, logout ,registerUser} = useContext(UserContext);
+  console.log(registerUser);
+  
   const navigate = useNavigate();
   // const { logout } = useContext(UserContext);
-  const {registerUser} = useContext(UserContext)
   if (!user) return <div className='text-center text-xl mt-5'>Please Log In</div>;
 
   const workoutSchedule = {

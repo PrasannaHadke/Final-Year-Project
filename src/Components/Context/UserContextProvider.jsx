@@ -6,7 +6,7 @@ const UserContextProvider = ({children})=>{
     const [user,setUser] = useState(null) // yaha data signup se araha hai
     // console.log("UserContextProvider", user);
 
-    const [registerUser, setRegisterUser] = useState([])
+    const [registerUser, setRegisterUser] = useState(null)
     
     const navigate = useNavigate();
     const logout = () => navigate("/");
