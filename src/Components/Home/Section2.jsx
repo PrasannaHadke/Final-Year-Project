@@ -1,20 +1,31 @@
 import React from 'react';
-
+import { motion } from 'framer-motion';
+import {fadeIn} from '../FramerMotion/Variant';
 function Section2() {
   return (
     <div className="w-full bg-white py-16 flex flex-col items-center">
       {/* Heading Section */}
-      <div className="w-[90%] max-w-5xl text-center space-y-4">
+      <motion.div
+      variants={fadeIn("right", 0.5)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.3 }}
+      className="w-[90%] max-w-5xl text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
           Featured Programs
         </h1>
         <p className="text-lg text-gray-600">
           Choose from our wide-ranging health & fitness programs that are suited for your needs.
         </p>
-      </div>
+      </motion.div>
 
       {/* Cards Section */}
-      <div className="w-[90%] max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+      <motion.div
+        variants={fadeIn("left", 0.5)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+      className="w-[90%] max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
         
         {/* Strength and Conditioning */}
         <div className="bg-gray-200 p-6 rounded-lg shadow-md hover:shadow-xl 
@@ -63,7 +74,7 @@ function Section2() {
           </p>
         </div>
 
-      </div>
+      </motion.div>
     </div>
   );
 }
