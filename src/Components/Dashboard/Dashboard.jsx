@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
   const { user, logout ,registerUser} = useContext(UserContext);
-  console.log(registerUser);
+  // console.log(registerUser);
   
   const navigate = useNavigate();
   // const { logout } = useContext(UserContext);
@@ -33,7 +33,7 @@ function Dashboard() {
           {/* Membership Status */}
           <div className='bg-blue-500 text-white p-4 rounded-lg text-center'>
             <h2 className='text-xl font-semibold'>Membership Status</h2>
-            <p className='text-lg'>{registerUser.membership || 'Active'}</p>
+            <p className='text-lg'>{user.membership || 'Active'}</p>
           </div>
 
           {/* Workout Plan */}
