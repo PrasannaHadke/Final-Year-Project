@@ -56,6 +56,15 @@ export default function Header() {
                                     More
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/membership"
+                                    className={({ isActive }) => `block py-2 pr-4 pl-3 lg:px-4 duration-200 border-b border-gray-100 lg:border-none hover:bg-gray-50 hover:text-orange-700 lg:hover:bg-transparent ${isActive ? "text-orange-700" : "text-gray-800"}`}
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    MemberShip
+                                </NavLink>
+                            </li>
                             {user &&<li>
                                 <NavLink
                                     to="/dashboard"

@@ -3,7 +3,7 @@ import UserContext from '../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
-  const { user, logout ,registerUser} = useContext(UserContext);
+  const { user, logout ,registerUser, setUser} = useContext(UserContext);
   // console.log(registerUser);
   
   const navigate = useNavigate();
@@ -58,8 +58,12 @@ function Dashboard() {
           <button
             className='bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition'
             onClick={() => {
-              logout();
-              navigate('/signup');
+              if (user) {
+                setUser(null);
+                navigate("/");
+            } else {
+                navigate("/signup");
+            }
             }}
           >
             Logout

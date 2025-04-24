@@ -11,12 +11,14 @@ import Home from './Components/Home/Home.jsx'
 import Dashboard from './Components/Dashboard/Dashboard.jsx'
 import More from './Components/Home/More.jsx'
 import AdminDashboard from './Components/Dashboard/AdminDashboard.jsx'
+import MemberShip from './Components/Home/MemberShip.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home/>} /> 
       <Route path='about' element={<About/>} />
       <Route path='more' element={<More/>} />
+      <Route path='membership' element={<MemberShip/>} />
       {/* <Route path='contact' element={<Contact/>} /> */}
       <Route path='signup' element={<SignUp/>} />
       <Route path='dashboard' element={<Dashboard/>} />

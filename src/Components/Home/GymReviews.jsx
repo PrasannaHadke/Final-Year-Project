@@ -5,19 +5,19 @@ import { fadeIn } from "../FramerMotion/Variant";
 function GymReviews() {
   const reviews = [
     {
-      name: "John Doe",
+      name: "Vishal Rangari",
       rating: 5,
       feedback: "Amazing gym with great equipment and trainers!",
       profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
     },
     {
-      name: "Sarah Smith",
+      name: "Prachi Burde",
       rating: 4,
       feedback: "Love the environment! The trainers are super helpful.",
       profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
     },
     {
-      name: "Michael Brown",
+      name: "Ruthika Thakre",
       rating: 5,
       feedback: "Best gym in town! Clean, spacious, and well-equipped.",
       profilePic: "https://randomuser.me/api/portraits/men/3.jpg",

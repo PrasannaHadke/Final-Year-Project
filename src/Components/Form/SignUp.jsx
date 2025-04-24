@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function SignUp() {
   const {setUser} = useContext(UserContext)
-
+  const [displayMessage, setDisplayMessage] = useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -31,16 +31,20 @@ function SignUp() {
       
       let user = signUpResponse.data.find((u) => {
         // console.log(u);
-        
         return (u.fullName === formData.fullName  && u.password === formData.password)
+        
+        
       })
 
       if (user) {
         setUser({fullName:user.fullName});
-        console.log("user",user.fullName);
+        // console.log("user",user.fullName);
         
         navigate("/dashboard");
+      }else{
+        setDisplayMessage('Enter Valid Details')
       }
+      
     } catch (error) {
       setError("SignUp failed. Please try again.");
     }
@@ -102,12 +106,13 @@ function SignUp() {
             type="submit"
             className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
-            Sign Up
+            Log In
           </button>
         </form>
 
        
         <p>{error}</p>
+        {displayMessage && <p className="text-yellow-400 mt-3">{displayMessage}</p>}
       </div>
     </div>
   );

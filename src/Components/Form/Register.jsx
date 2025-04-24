@@ -1,10 +1,10 @@
-import React, { useState , useContext } from "react";
-import { useNavigate ,Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../Context/UserContext.js";
 import { address } from "framer-motion/client";
 function Register() {
-  const {setRegisterUser} = useContext(UserContext)
+  const { setRegisterUser } = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -23,7 +23,7 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
@@ -35,7 +35,7 @@ function Register() {
 
     // agar user phele se exist krta hai to registration nhi honga uska code yaha se hai!
 
-    try{
+    try {
       const response = await axios.get("https://6788e51d2c874e66b7d6c01d.mockapi.io/one");
       console.log(response.data);
       const existingUser = response.data.find(user => user.email === formData.email);
@@ -43,7 +43,7 @@ function Register() {
         setErrors({ error: "User already exists. Please choose a different email." });
         return;
       }
-    }catch(error){
+    } catch (error) {
       errors({ error: "Registration failed. Please try again." });
     }
 
@@ -51,20 +51,20 @@ function Register() {
     // Send registration data to the server for processing
 
     try {
-      const registeredUser  =await axios.post("https://6788e51d2c874e66b7d6c01d.mockapi.io/one", formData);
-    console.log(registeredUser );
+      const registeredUser = await axios.post("https://6788e51d2c874e66b7d6c01d.mockapi.io/one", formData);
+      console.log(registeredUser);
 
-    if (registeredUser.status === 201) {
-      alert("Registration Successful! Welcome to Fitness Hub 💪");
-      setRegisterUser(registeredUser.data)
-      navigate("/signup"); // Redirect after successful registration
-    }
+      if (registeredUser.status === 201) {
+        alert("Registration Successful! Welcome to Fitness Hub 💪");
+        setRegisterUser(registeredUser.data)
+        navigate("/signup"); // Redirect after successful registration
+      }
 
     } catch (error) {
       setErrors({ error: "Registration failed. Please try again." });
     }
-    
-    
+
+
   };
 
   return (
@@ -80,7 +80,7 @@ function Register() {
             <label className="block text-gray-300 font-medium mb-1">Full Name</label>
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-              placeholder="Enter your full name"/>
+              placeholder="Enter your full name" />
           </div>
 
           {/* Email */}
@@ -88,15 +88,15 @@ function Register() {
             <label className="block text-gray-300 font-medium mb-1">Email Address</label>
             <input type="email" name="email" value={formData.email} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-              placeholder="Enter your email"/>
+              placeholder="Enter your email" />
           </div>
 
           {/* Address */}
           <div>
             <label className="block text-gray-300 font-medium mb-1">Address</label>
             <input type="address" name="address" value={formData.address} onChange={handleChange} required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-            placeholder="Enter your address" />
+              className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
+              placeholder="Enter your address" />
           </div>
 
           {/* Phone Number */}
@@ -104,7 +104,7 @@ function Register() {
             <label className="block text-gray-300 font-medium mb-1">Phone Number</label>
             <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-              placeholder="Enter your phone number"/>
+              placeholder="Enter your phone number" />
           </div>
 
           {/* Membership Type */}
@@ -123,7 +123,7 @@ function Register() {
             <label className="block text-gray-300 font-medium mb-1">Password</label>
             <input type="password" name="password" value={formData.password} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-              placeholder="Enter your password"/>
+              placeholder="Enter your password" />
           </div>
 
           {/* Confirm Password */}
@@ -131,7 +131,7 @@ function Register() {
             <label className="block text-gray-300 font-medium mb-1">Confirm Password</label>
             <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required
               className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-yellow-400 outline-none"
-              placeholder="Confirm your password"/>
+              placeholder="Confirm your password" />
           </div>
 
           {/* Register Button */}
@@ -145,7 +145,7 @@ function Register() {
         <p className="text-gray-400 text-center mt-4">
           Already a member? <Link to="/signup" className="text-yellow-400 hover:underline">Login here</Link>
         </p>
-        <p className="text-xl text-white text-center">{errors.error }</p>
+        <p className="text-xl text-white text-center">{errors.error}</p>
       </div>
     </div>
   );
